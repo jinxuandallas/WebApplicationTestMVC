@@ -7,6 +7,7 @@ using WebApplicationTestMVC.Models;
 
 namespace WebApplicationTestMVC.Concrete
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class EFDbContext:DbContext
     {
         public EFDbContext() : base("Name=MySql")
