@@ -13,5 +13,11 @@ namespace WebApplicationTestMVC.Concrete
         {
             get { return context.Products; }
         }
+
+        public void Add(Product product)
+        {
+            context.Products.Add(product);
+            context.SaveChanges();
+        }
     }
 }

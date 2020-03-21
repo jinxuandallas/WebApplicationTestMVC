@@ -1,0 +1,24 @@
+﻿@model WebApplicationTestMVC.Models.Product
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <label>name:</label>
+        @Html.TextBoxFor(p => p.name)
+    </p>
+    <p>
+        <label>info:</label>
+        @Html.TextBoxFor(p => p.productinfo)
+    </p>
+    <input id="submit" type="submit" value="提交" />
+    if (ViewBag.Succeed)
+    {
+        <label style="color:red">提交成功</label>
+    }
+}
