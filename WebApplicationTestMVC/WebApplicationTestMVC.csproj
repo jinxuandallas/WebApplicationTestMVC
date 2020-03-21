@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\test_product.sql" />
+    <Content Include="App_Data\test_products.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

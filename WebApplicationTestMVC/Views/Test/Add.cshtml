@@ -8,14 +8,16 @@
 
 @using (Html.BeginForm())
 {
-    <p>
+    @*@Html.DisplayFor(p=>p.name)*@
+    @Html.EditorForModel()
+    @*<p>
         <label>name:</label>
         @Html.TextBoxFor(p => p.name)
     </p>
     <p>
         <label>info:</label>
         @Html.TextBoxFor(p => p.productinfo)
-    </p>
+    </p>*@
     <input id="submit" type="submit" value="提交" />
     if (ViewBag.Succeed)
     {
