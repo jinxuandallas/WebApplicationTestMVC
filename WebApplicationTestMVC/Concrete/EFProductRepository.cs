@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebApplicationTestMVC.Models;
+using WebApplicationTestMVC.Abstract;
 
 namespace WebApplicationTestMVC.Concrete
 {
-    public class EFProductRepository
+    public class EFProductRepository:IEFProductRepository
     {
         private EFDbContext context = new EFDbContext();
         public IEnumerable<Product> Products

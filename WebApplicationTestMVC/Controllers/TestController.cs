@@ -5,15 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplicationTestMVC.Concrete;
 using WebApplicationTestMVC.Models;
+using WebApplicationTestMVC.Abstract;
 
 namespace WebApplicationTestMVC.Controllers
 {
     public class TestController : Controller
     {
-        private EFProductRepository productRepository;
-        public TestController()
+        private IEFProductRepository productRepository;
+        //private EFProductRepository productRepository;
+        public TestController(IEFProductRepository _EFProductRepository)
         {
-            productRepository = new EFProductRepository();
+            productRepository = _EFProductRepository;
+            //productRepository = new EFProductRepository();
         }
         // GET: Test
         public ActionResult Index()
