@@ -25,6 +25,8 @@ namespace WebApplicationTestMVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/vue").Include("~/Scripts/vue.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/axios").Include("~/Scripts/axios.min.js"));
         }
     }
 }

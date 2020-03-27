@@ -14,4 +14,39 @@
 <h2>Test success</h2>
 @*@Html.ActionLink("lll","add","Test")*@
 <button onclick="javascript: window.location.href='/api/TestAPI'">测试API</button>
+<div id="vue_test">
+    <h1>{{msg}}</h1>
+</div>
 
+<div id="vue_ajaxAPI">
+    <button  v-on:click="testapi">测试AJAX API</button>
+    {{info}}
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vue_test',
+        data: {
+            msg: "hello world!"
+        }
+    })
+
+    var vm2 = new Vue({
+        el: '#vue_ajaxAPI',
+        data() {
+            return {
+                info: null
+            }
+        },
+        methods: {
+            testapi: function () {
+                axios
+                    .get('/api/TestAPI')
+                    .then(response => (this.info = response.data))
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+            }
+
+        }
+    })
+</script>
