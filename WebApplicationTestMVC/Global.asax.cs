@@ -11,6 +11,8 @@ using WebApplicationTestMVC.Models;
 using Autofac.Integration.Mvc;
 using System.Reflection;
 using WebApplicationTestMVC.Concrete;
+using System.Web.Http;
+using Autofac.Integration.WebApi;
 
 namespace WebApplicationTestMVC
 {
@@ -19,6 +21,7 @@ namespace WebApplicationTestMVC
         protected void Application_Start()
         {
             Register();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -29,9 +32,12 @@ namespace WebApplicationTestMVC
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetCallingAssembly());
+            builder.RegisterApiControllers(Assembly.GetCallingAssembly());
             builder.RegisterType<EFProductRepository>().As<IEFProductRepository>();
             var container = builder.Build();
+         
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }
