@@ -61,8 +61,19 @@
             },
             clickitem: function (id) {
                 //alert(this.info.find((product) => product.id === id).productinfo)
-                this.productitem = this.info.find((product) => product.id === id);
                 //alert(productitem.productinfo)
+
+                //vue方法
+                //this.productitem = this.info.find((product) => product.id === id);
+
+                //ajax WebApi方案
+                axios
+                    .get('/api/TestAPI/' + id)
+                    .then(response => (this.productitem = response.data))
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+                
             }
 
 
