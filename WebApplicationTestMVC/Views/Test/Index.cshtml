@@ -10,7 +10,7 @@
         <h4>@p.productinfo</h4>
     </div>
 }
-<button onclick="javascript: window.location.href='/Test/add'">添加</button>
+<button onclick="javascript: window.location.href='/Test/add'" class="btn btn-primary">添加</button>
 <h2>Test success</h2>
 @*@Html.ActionLink("lll","add","Test")*@
 <button onclick="javascript: window.location.href='/api/TestAPI'">测试API</button>
@@ -63,10 +63,16 @@
                 //alert(this.info.find((product) => product.id === id).productinfo)
                 //alert(productitem.productinfo)
 
-                //vue版本
-                this.productitem = this.info.find((product) => product.id === id);
+                //vue方法
+                //this.productitem = this.info.find((product) => product.id === id);
 
-                //ajax版本
+                //ajax WebApi方案
+                axios
+                    .get('/api/TestAPI/' + id)
+                    .then(response => (this.productitem = response.data))
+                    .catch(function (error) {
+                        console.log(error)
+                    })
                 
             }
 
