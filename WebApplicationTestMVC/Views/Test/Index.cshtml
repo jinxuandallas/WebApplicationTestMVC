@@ -17,10 +17,22 @@
 <div id="vue_test">
     <h1>{{msg}}</h1>
 </div>
-
+<style>
+    li:hover{background-color:red}
+</style>
 <div id="vue_ajaxAPI">
     <button  v-on:click="testapi">测试AJAX API</button>
-    {{info}}
+    <ul>
+        <li v-for="product in info" v-on:click="clickitem(product.id)">
+            {{product.name}}
+        </li>
+    </ul>
+    
+    <div id="show_product" v-if="productitem!=null" style="background-color:aqua">
+        <p>{{productitem.id}}</p>
+        <p>{{productitem.name}}</p>
+        <p>{{productitem.productinfo}}</p>
+    </div>
 </div>
 <script type="text/javascript">
     var vm = new Vue({
@@ -34,7 +46,8 @@
         el: '#vue_ajaxAPI',
         data() {
             return {
-                info: null
+                info: null,
+                productitem:null
             }
         },
         methods: {
@@ -45,7 +58,13 @@
                     .catch(function (error) {
                         console.log(error)
                     })
+            },
+            clickitem: function (id) {
+                //alert(this.info.find((product) => product.id === id).productinfo)
+                this.productitem = this.info.find((product) => product.id === id);
+                //alert(productitem.productinfo)
             }
+
 
         }
     })
