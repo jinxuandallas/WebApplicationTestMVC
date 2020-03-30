@@ -165,9 +165,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IEFProductRepository.cs" />
+    <Compile Include="App_Start\BaseApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\TokenCheckFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
