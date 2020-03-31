@@ -7,10 +7,11 @@ using System.Web.Http;
 using WebApplicationTestMVC.Models;
 using WebApplicationTestMVC.Abstract;
 //using WebApplicationTestMVC.Concrete;
+using WebApplicationTestMVC.App_Start;
 
 namespace WebApplicationTestMVC.WebAPI
 {
-    public class TestAPIController : ApiController
+    public class TestAPIController : BaseApiController
     {
         private IEFProductRepository _EFProductRepository;
 

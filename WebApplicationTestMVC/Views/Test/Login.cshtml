@@ -11,13 +11,28 @@
     <input type="password" name="txtPassword" id="txtPassword" />
 </p>
 <p>
-    <input type="button" id="bthSave" value="登陆验证" class="btn-primary" onclick="xxx('xxee')" />
+    <input type="button" id="btnSave" value="登陆验证" />
 </p>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-    
-    function xxx(eee) {
-        
-        alert(eee);
-        
-    }
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+            //alert("xx");
+            $.ajax({
+                type: "GET",
+                url: "/Api/Login",
+                dataType: "json",
+                data: { "uName": $("#txtLoginID").val(), "uPassword": $("#txtPassword").val() },
+                success: function (data) {
+                    if (data.ret > 1)
+                        alert(data.msg + "Token:  " + data.data);
+                    else
+                        alert(data.msg);
+                },
+                error: function (ret) {
+                    console.log(ret);
+                }
+            });
+        });
+    });
 </script>
