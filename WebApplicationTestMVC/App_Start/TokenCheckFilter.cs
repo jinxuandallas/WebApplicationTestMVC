@@ -16,7 +16,7 @@ namespace WebApplicationTestMVC.App_Start
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
+            //var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
             var token = HttpContext.Current.Request.Headers["TokenValue"] ?? "";
             if (!string.IsNullOrEmpty(token))
             {

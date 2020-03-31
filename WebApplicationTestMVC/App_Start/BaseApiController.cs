@@ -10,12 +10,16 @@ namespace WebApplicationTestMVC.App_Start
 {
     public class BaseApiController : ApiController
     {
-        public static object TokenValue { get; set; } = "";
-        public static  string LoginID { get; set; } = "";
+        private object TokenValue { get; set; } = "";
+        private object LoginID { get; set; } = "";
         public BaseApiController()
         {
-            TokenValue = HttpContext.Current.Session[LoginID] ?? "";
-            HttpContext.Current.Request.Headers.Add("TokenValue", TokenValue.ToString());
+            LoginID = HttpContext.Current.Session["Username"];
+            if ( LoginID!= null)
+            {
+                TokenValue = HttpContext.Current.Session[LoginID.ToString()] ?? "";
+                HttpContext.Current.Request.Headers.Add("TokenValue", TokenValue.ToString());
+            }
         }
     }
 }

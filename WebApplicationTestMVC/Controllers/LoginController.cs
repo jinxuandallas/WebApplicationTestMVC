@@ -29,9 +29,10 @@ namespace WebApplicationTestMVC.Controllers
                 return Json(new { ret = 0, data = "", msg = "用户名密码错误" });
             FormsAuthenticationTicket token = new FormsAuthenticationTicket(0, uName, DateTime.Now, DateTime.Now.AddHours(12), true, $"{uName}&{uPassword}", FormsAuthentication.FormsCookiePath);
             var _token = FormsAuthentication.Encrypt(token);
-            LoginID = uName;
-            TokenValue = _token;
-            HttpContext.Current.Session[LoginID] = TokenValue;
+            //LoginID = uName;
+            //TokenValue = _token;
+            HttpContext.Current.Session["Username"] = uName;
+            HttpContext.Current.Session[uName] = _token;
             return Json(new { ret = 1, data = _token, msg = "登录成功！" });
         }
     }
