@@ -185,6 +185,7 @@
     <Compile Include="WebAPI\TestAPIController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\test_accounts.sql" />
     <Content Include="App_Data\test_product.sql" />
     <Content Include="App_Data\test_products.sql" />
     <Content Include="Content\bootstrap-theme.css" />
