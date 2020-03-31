@@ -10,6 +10,7 @@ namespace WebApplicationTestMVC.Abstract
     public interface IEFProductRepository
     {
         IEnumerable<Product> Products { get; }
+        IEnumerable<Account> Accounts { get; }
         void Add(Product product);
     }
 }

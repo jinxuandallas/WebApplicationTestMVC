@@ -15,6 +15,11 @@ namespace WebApplicationTestMVC.Concrete
             get { return context.Products; }
         }
 
+        public IEnumerable<Account> Accounts
+        {
+            get { return context.Accounts; }
+        }
+
         public void Add(Product product)
         {
             context.Products.Add(product);

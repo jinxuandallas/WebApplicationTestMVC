@@ -46,5 +46,10 @@ namespace WebApplicationTestMVC.Controllers
             ViewBag.Succeed = true;
             return RedirectToAction("Index");
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
