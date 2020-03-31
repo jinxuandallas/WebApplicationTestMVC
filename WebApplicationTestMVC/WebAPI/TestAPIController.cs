@@ -11,6 +11,7 @@ using WebApplicationTestMVC.App_Start;
 
 namespace WebApplicationTestMVC.WebAPI
 {
+    [TokenCheckFilter]
     public class TestAPIController : BaseApiController
     {
         private IEFProductRepository _EFProductRepository;

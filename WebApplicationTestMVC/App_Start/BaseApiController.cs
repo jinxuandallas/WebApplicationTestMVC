@@ -10,8 +10,8 @@ namespace WebApplicationTestMVC.App_Start
 {
     public class BaseApiController : ApiController
     {
-        public object TokenValue { get; set; } = "";
-        public string LoginID { get; set; } = "";
+        public static object TokenValue { get; set; } = "";
+        public static  string LoginID { get; set; } = "";
         public BaseApiController()
         {
             TokenValue = HttpContext.Current.Session[LoginID] ?? "";

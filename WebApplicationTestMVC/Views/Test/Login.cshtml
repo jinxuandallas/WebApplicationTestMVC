@@ -24,7 +24,7 @@
                 dataType: "json",
                 data: { "uName": $("#txtLoginID").val(), "uPassword": $("#txtPassword").val() },
                 success: function (data) {
-                    if (data.ret > 1)
+                    if (data.ret > 0)
                         alert(data.msg + "Token:  " + data.data);
                     else
                         alert(data.msg);
